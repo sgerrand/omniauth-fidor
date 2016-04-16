@@ -1,0 +1,24 @@
+language: ruby
+rvm:
+- ruby-head
+- 2.3.0
+- 2.2.4
+- 2.1.8
+- 2.0.0
+before_install:
+- gem install --no-rdoc --no-ri bundler echoe
+- echo -e 'source "https://rubygems.org"\n\ngem "echoe"\n\ngemspec' > Gemfile
+- rake build_gemspec
+install:
+- bundle install
+matrix:
+  allow_failures:
+  - rvm: ruby-head
+deploy:
+  provider: rubygems
+  api_key:
+    secure: x9jnMzOwqOpRyjwjY4KUYMHE5jc/ui1pBHaipQvoE1LW75ViEMST5V88NY2fNCS2fg0M0CHYNZgWPZa31Dls56pjD9GmwWuq4wZDffr2qJwY0LHV1uv6Nz2w0eYGRH16wFPz7MziTNluYjy6ATxWvGEfxUht2oU4/T5mkZNz3494kxOjFMY8pgfFlXXQbvGTazuWU2spjx3Qgz277UBDZbSNd4FEZxpSuGhUcp0ZWa33K/gK1yLCheQVLIRLOa0N0ZamjWy0sLc5vThzrsSP/lMxb/0NT9MmAoM2gfh9qBrKXHszQz7DyTA45mTENCzvkKTMSwv0/a7qFkPloErIuPyPQJFPZHeSYr+Yd4j9EGnSg4W/grR1QFdXOWy+aRGuAf07LtQnaZo8XXdOlyQM/fBF2NuhMBG/nnv39wkDb6WQ4sP6p8gGx/Sofw0qPEs69AU0UOXCNaRWcr8hHZEFq53DnDc/5Lczis4IbgZP34wl+lOpmK72+1zWcL5OagVrKjeCPSObfF1EwkKRRKyeHu8bKaopT7XIOHbIRrJ4qafT8ayIM7JM0kUAAwUbgoMfATrJ0BKT75BgWjaC6nXSKptKTiJkcXii+JAsRweFaTI6uGuRV0IUZo8hbRUXJKOkfdHMuNbaFTnX2s2JDoENXlMIxb2KY5/FvEzI8Z77Cas=
+  gem: omniauth-fidor
+  on:
+    tags: true
+    repo: sgerrand/omniauth-fidor
