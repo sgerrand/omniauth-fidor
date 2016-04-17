@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/sgerrand/omniauth-fidor.svg?branch=master)](https://travis-ci.org/sgerrand/omniauth-fidor)
 [![Code Climate](https://codeclimate.com/github/sgerrand/omniauth-fidor/badges/gpa.svg)](https://codeclimate.com/github/sgerrand/omniauth-fidor)
+[![Test Coverage](https://codeclimate.com/github/sgerrand/omniauth-fidor/badges/coverage.svg)](https://codeclimate.com/github/sgerrand/omniauth-fidor/coverage)
 
 This is a OmniAuth strategy for authenticating to [Fidor
 Banking][fidor-banking]. To use it, you'll need to sign up for an OAuth2

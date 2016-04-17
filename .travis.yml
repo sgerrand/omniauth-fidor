@@ -7,7 +7,7 @@ rvm:
 - 2.0.0
 before_install:
 - gem install --no-rdoc --no-ri bundler echoe
-- echo -e 'source "https://rubygems.org"\n\ngem "echoe"\n\ngemspec' > Gemfile
+- echo -e 'source "https://rubygems.org"\n\ngem "echoe"\n\ngem "codeclimate-test-reporter", :group => :test, :require => nil\n\ngemspec' | tee -a Gemfile
 - rake build_gemspec
 install:
 - bundle install
@@ -22,3 +22,6 @@ deploy:
   on:
     tags: true
     repo: sgerrand/omniauth-fidor
+env:
+  global:
+    secure: Zfcite0CrO+qOIcN7XjpGlVbbuVnrWMuiL7AmhAyIqRxS8TvENElL/D76GKgl6fDY90c20hv6uKfZw74bmc6ouwVWs8UT0dkZbY+NyctWQ2d3O6L75ka1Mu48QDv5T7bjNGtYqfKkkrQNC2lakh7fDpmHSQ598FIycYv+g7jPapAwGUCxCsL05cFKLSwDMUm9SuFG8g+wkIeN+dHnhAfO9YBeGQyg0yMiiGnIqPELRXTkEmOnEGhDnwXazhYGRcBizGLoV+pFC/cI91tZIb5paB+GsyPhQF2txr4emfF4CHiND/pF/u5szwhAprOxSwfnHrWbBkv9WBG+6uq0Pu0NiBVIbDM13LzhsGIqSt6GUewoU4yVGUU6m9vVYvnin32NlypI/rr7LKoQWVhjoWIQ0FpAzGr5C3/l30TKNBo92kXT1P9oWIGh9ISuFam/pfjtj053Ppi+jMnI5rOAjBYfR5Ulefa70jAOVBBw3ZDI2cpkFjNbfjGW7/ECiGoPlYFuCzFeB34w/8c+1L8XriMS14Lp+aF3fS4o/QXmAXuqpGaPiKmv4QK/KoO+n//cxLEkJUs33CdzqRqlVYn9s/MeNP2HXIscMOj+XxFa7cbtYHvtae6jjhPnzIGS2hc0PZv38Zu0gITBQteEAeHa+18bA828lZdZmpaCdBMz+OOys4=
