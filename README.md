@@ -1,5 +1,7 @@
 # OmniAuth Fidor
 
+[![Build Status](https://travis-ci.org/sgerrand/omniauth-fidor.svg?branch=master)](https://travis-ci.org/sgerrand/omniauth-fidor)
+
 This is a OmniAuth strategy for authenticating to [Fidor
 Banking][fidor-banking]. To use it, you'll need to sign up for an OAuth2
 Application ID and Secret on the [Fidor Developer Page][fidor-developers].
