@@ -47,8 +47,18 @@ new version, update the version number in the `CHANGELOG`, and then run `rake
 release`, which will create a git tag for the version, push git commits and
 tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
-You can also override the API and OAuth URLs used by setting values for the
-`FIDOR_API_URL` and/or `FIDOR_OAUTH_URL` environment variables.
+You can also use the sandbox versions of the API and OAuth URLs for testing by
+passing an optional fourth parameter to the builder:
+
+```ruby
+use OmniAuth::Builder do
+  provider :fidor, ENV['FIDOR_KEY'], ENV['FIDOR_SECRET'], false
+end
+```
+
+If you need to use endpoints that differ from Fidor's production or sandbox
+environments, you can override them by setting the `FIDOR_API_URL` and/or
+`FIDOR_OAUTH_URL` environment variables.
 
 ## Contributing
 

@@ -4,10 +4,8 @@ Manifest
 README.md
 Rakefile
 lib/omniauth-fidor.rb
-lib/omniauth/fidor/config.rb
 lib/omniauth/fidor/version.rb
 lib/omniauth/strategies/fidor.rb
 test/helper.rb
-test/omniauth/fidor/config_test.rb
 test/omniauth/fidor/version_test.rb
 test/omniauth/strategies/fidor_test.rb
