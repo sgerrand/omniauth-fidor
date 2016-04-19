@@ -56,6 +56,10 @@ use OmniAuth::Builder do
 end
 ```
 
+If you need to use endpoints that differ from Fidor's production or sandbox
+environments, you can override them by setting the `FIDOR_API_URL` and/or
+`FIDOR_OAUTH_URL` environment variables.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on [GitHub](https://github.com/sgerrand/omniauth-fidor).
