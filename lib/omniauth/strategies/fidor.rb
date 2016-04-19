@@ -3,6 +3,12 @@ require 'omniauth-oauth2'
 module OmniAuth
   module Strategies
     class Fidor < OmniAuth::Strategies::OAuth2
+      FIDOR_API_HEADERS = {
+        :headers => {
+          'Accept' => 'application/vnd.fidor.de; version=1,text/json',
+          'Content-Type' => 'application/json',
+        },
+      }.freeze
       FIDOR_API_URL = 'https://api.fidor.de'
       FIDOR_SANDBOX_URL = 'https://aps.fidor.de'
       FIDOR_OAUTH_URL = 'https://apm.fidor.de'
@@ -31,7 +37,7 @@ module OmniAuth
 
       def build_access_token
         verifier = request.params["code"]
-        client.auth_code.get_token(verifier, {client_id: client.id, redirect_uri: callback_url}.merge(token_params.to_hash(:symbolize_keys => true)), deep_symbolize(options.auth_token_params))
+        client.auth_code.get_token(verifier, {:client_id => client.id, :redirect_uri => callback_url}.merge(token_params.to_hash(:symbolize_keys => true)), deep_symbolize(options.auth_token_params))
       end
 
       def client
@@ -39,10 +45,6 @@ module OmniAuth
         options.client_options.site = build_api_url
         options.client_options.token_url = build_oauth_url('/oauth/token')
 
-        super
-      end
-
-      def request_phase
         super
       end
 
@@ -57,8 +59,7 @@ module OmniAuth
       end
 
       def raw_info
-        access_token.options[:mode] = :query
-        @raw_info ||= access_token.get('users/current').parsed
+        @raw_info ||= access_token.get('users/current', FIDOR_API_HEADERS).parsed
       end
 
       def email
