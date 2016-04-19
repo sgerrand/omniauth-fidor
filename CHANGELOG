@@ -1,1 +1,4 @@
+v0.1.0
+  - Introduces staging/production flag for builder
+  - Fixes bug with requesting user info by adding required request headers
 v0.0.0 Initial version.
