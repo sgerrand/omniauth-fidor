@@ -43,7 +43,6 @@ module OmniAuth
       end
 
       def request_phase
-        puts authorize_params
         super
       end
 
